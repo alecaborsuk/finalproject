@@ -2,13 +2,15 @@
 title: "Minimum Viable Analysis"
 author: "Aleca Borsuk"
 date: "11/2/2020"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(ape)
 library(geiger)
+library(ggtree)
+library(knitr)
 ```
 
 ## Maximum Likelihood
@@ -23,6 +25,37 @@ phy=multi2di(phy)
 #View the phylogeny
 plot(phy)
 ```
+
+
+## Mapping Character Data onto the Tree
+
+Visualization of the character 'palisade.type' mapped onto the tree tips. 
+
+```{r}
+
+# View species names
+species.names <- phy[[4]]
+species.names
+
+# Assign to data frame
+D = data.frame(species = phy[[4]],
+               palisade.type = c("H1", "I2", "I1","I2", "I1", "H1", "I2", "I2", "I2", "I1", "H1", "H2"))
+
+# View data in table format
+kable(D)
+
+# Plot
+palisade.type_plot = ggtree(phy) %<+% D + 
+  geom_tiplab( fontface = "italic") +
+  #xlim(0, 300) +
+  geom_tippoint( aes(color=palisade.type), size=3, alpha=1 )
+
+palisade.type_plot
+
+```
+
+```
+
 
 ## Phylogenetically Informed ANOVA
 
