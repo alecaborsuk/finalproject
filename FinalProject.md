@@ -38,7 +38,7 @@ species.names
     ## [11] "Viburnum_dentatum"        "Viburnum_japonicum"
 
 ``` r
-# Assign to data frame with character data according to species name order
+# Assign to data frame
 D = data.frame(species = phy[[4]],
                palisade.type = c("H1", "I2", "I1","I2", "I1", "H1", "I2", "I2", "I2", "I1", "H1", "H2"))
 
@@ -63,10 +63,9 @@ kable(D)
 
 ``` r
 # Plot
-
 palisade.type_plot = ggtree(phy) %<+% D + 
-  geom_tiplab( fontface = "italic", offset=20 ) +
-  xlim(0, 300) +
+  geom_tiplab( fontface = "italic") +
+  #xlim(0, 300) +
   geom_tippoint( aes(color=palisade.type), size=3, alpha=1 )
 
 palisade.type_plot
@@ -112,7 +111,7 @@ x1=aov.phylo(df2~df1, phy, nsim=50)
     ## 
     ## Response: dat
     ##           Df Sum-Sq Mean-Sq F-value   Pr(>F) Pr(>F) given phy
-    ## group      3 84.510 28.1699   4.886 0.047372           0.3137
+    ## group      3 84.510 28.1699   4.886 0.047372           0.3922
     ## Residuals  6 34.593  5.7655
 
 ``` r
