@@ -111,7 +111,7 @@ x1=aov.phylo(df2~df1, phy, nsim=50)
     ## 
     ## Response: dat
     ##           Df Sum-Sq Mean-Sq F-value   Pr(>F) Pr(>F) given phy
-    ## group      3 84.510 28.1699   4.886 0.047372           0.3922
+    ## group      3 84.510 28.1699   4.886 0.047372           0.3725
     ## Residuals  6 34.593  5.7655
 
 ``` r
