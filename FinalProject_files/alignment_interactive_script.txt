@@ -1,5 +1,0 @@
-    srun --pty -t 1:00:00 --mem=8G -p interactive bash
-    cd scratch60/Project/
-    
-    module load MAFFT/7.429-foss-2018b-with-extensions
-    mafft rbcL.fasta > rbcL_aligned.fasta
