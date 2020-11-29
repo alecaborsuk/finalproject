@@ -7,4 +7,4 @@
 
 module load IQ-TREE/1.6.12
 
-iqtree -s viburnum_alignment.fasta -nt AUTO
+iqtree -s rbcL_aligned.fasta -nt AUTO
