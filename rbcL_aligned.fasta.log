@@ -1,0 +1,468 @@
+IQ-TREE multicore version 1.6.12 for Linux 64-bit built Aug 15 2019
+Developed by Bui Quang Minh, Nguyen Lam Tung, Olga Chernomor,
+Heiko Schmidt, Dominik Schrempf, Michael Woodhams.
+
+Host:    p09r13n27.grace.hpc.yale.internal (AVX512, FMA3, 187 GB RAM)
+Command: iqtree -s rbcL_aligned.fasta -nt AUTO
+Seed:    654010 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Sun Nov 29 14:13:01 2020
+Kernel:  AVX+FMA - auto-detect threads (36 CPU cores detected)
+
+Reading alignment file rbcL_aligned.fasta ... Fasta format detected
+Alignment most likely contains DNA/RNA sequences
+Alignment has 110 sequences with 1428 columns, 139 distinct patterns
+53 parsimony-informative, 18 singleton sites, 1357 constant sites
+                             Gap/Ambiguity  Composition  p-value
+   1  Viburnum_acerifolium           0.21%    passed     88.49%
+   2  Viburnum_acutifolium          43.28%    passed     63.13%
+   3  Viburnum_adenophorum           6.72%    passed     99.43%
+   4  Viburnum_amplificatum          7.00%    passed     99.95%
+   5  Viburnum_anabaptista           7.35%    passed     99.96%
+   6  Viburnum_annamensis            6.72%    passed     99.50%
+   7  Viburnum_atrocyaneum           6.72%    passed     99.90%
+   8  Viburnum_awabuki               6.93%    passed     99.94%
+   9  Viburnum_beccarii              6.72%    passed     99.19%
+  10  Viburnum_betulifolium         11.62%    passed     99.77%
+  11  Viburnum_bitchiuense           6.72%    passed     99.88%
+  12  Viburnum_blandum               6.72%    passed     99.91%
+  13  Viburnum_brachyandrum          6.72%    passed     99.51%
+  14  Viburnum_bracteatum            6.72%    passed     99.29%
+  15  Viburnum_brevitubum            6.72%    passed     99.70%
+  16  Viburnum_buddleifolium        14.92%    passed     97.41%
+  17  Viburnum_burejaeticum         13.31%    passed     94.02%
+  18  Viburnum_burmanicum            9.10%    passed     99.34%
+  19  Viburnum_calvum                6.72%    passed     99.90%
+  20  Viburnum_carlesii              6.72%    passed     99.88%
+  21  Viburnum_cassinoides           6.72%    passed     99.30%
+  22  Viburnum_chinshanense          6.72%    passed     99.71%
+  23  Viburnum_cinnamomifolium       6.72%    passed     99.85%
+  24  Viburnum_clemensae             6.72%    passed     99.51%
+  25  Viburnum_colebrookeanum        6.72%    passed     99.99%
+  26  Viburnum_coriaceum             6.72%    passed     99.93%
+  27  Viburnum_corylifolium          7.00%    passed     99.02%
+  28  Viburnum_cotinifolium          7.00%    passed     99.91%
+  29  Viburnum_cylindricum           6.72%    passed     99.93%
+  30  Viburnum_davidii               7.00%    passed     99.97%
+  31  Viburnum_dentatum              6.72%    passed     99.92%
+  32  Viburnum_dilatatum             7.56%    passed     99.24%
+  33  Viburnum_disjunctum            7.00%    passed     99.89%
+  34  Viburnum_edule                 6.72%    passed     98.81%
+  35  Viburnum_ellipticum            6.72%    passed     99.59%
+  36  Viburnum_erosum                6.72%    passed     99.43%
+  37  Viburnum_fansipanense          9.17%    passed     99.65%
+  38  Viburnum_farreri               6.72%    passed     99.85%
+  39  Viburnum_flavescens            6.72%    passed     99.86%
+  40  Viburnum_foetidum              6.72%    passed     99.75%
+  41  Viburnum_fordiae               6.72%    passed     99.43%
+  42  Viburnum_formosanum            6.79%    passed     99.29%
+  43  Viburnum_furcatum              6.72%    passed     99.48%
+  44  Viburnum_glabratum             7.14%    passed     99.96%
+  45  Viburnum_grandiflorum          7.00%    passed     99.90%
+  46  Viburnum_hebanthum             6.72%    passed     99.96%
+  47  Viburnum_henryi                7.00%    passed     99.63%
+  48  Viburnum_hispidulum            6.72%    passed     98.67%
+  49  Viburnum_hupehense            48.67%    passed     83.40%
+  50  Viburnum_ichangense            6.72%    passed     99.86%
+  51  Viburnum_inopinatum            6.72%    passed     99.76%
+  52  Viburnum_integrifolium         6.72%    passed     99.50%
+  53  Viburnum_jamesonii             6.72%    passed     99.95%
+  54  Viburnum_japonicum             6.72%    passed     99.50%
+  55  Viburnum_jucundum              6.72%    passed     99.95%
+  56  Viburnum_kansuense             6.72%    passed     99.96%
+  57  Viburnum_lantana               6.72%    passed     99.88%
+  58  Viburnum_lantanoides           6.72%    passed     99.48%
+  59  Viburnum_lautum                6.72%    passed     99.95%
+  60  Viburnum_lentago               7.91%    passed     99.15%
+  61  Viburnum_lobophyllum           6.72%    passed     99.86%
+  62  Viburnum_loeseneri             6.72%    passed     99.96%
+  63  Viburnum_lutescens             6.72%    passed     99.68%
+  64  Viburnum_luzonicum             6.72%    passed     99.43%
+  65  Viburnum_macrocephalum         6.72%    passed     99.87%
+  66  Viburnum_melanocarpum          6.72%    passed     99.50%
+  67  Viburnum_microphyllum          6.72%    passed     99.83%
+  68  Viburnum_molle                 6.72%    passed     99.29%
+  69  Viburnum_mongolicum            6.72%    passed     99.71%
+  70  Viburnum_mullaha               6.72%    passed     99.75%
+  71  Viburnum_nervosum              6.72%    passed     99.77%
+  72  Viburnum_nudum                 6.72%    passed     99.68%
+  73  Viburnum_obovatum              9.03%    passed     98.22%
+  74  Viburnum_odoratissimum         6.72%    passed     99.85%
+  75  Viburnum_oliganthum            6.72%    passed     99.70%
+  76  Viburnum_opulus                6.72%    passed     98.79%
+  77  Viburnum_orientale             6.72%    passed     99.65%
+  78  Viburnum_parvifolium           6.72%    passed     99.50%
+  79  Viburnum_plicatum              6.72%    passed     99.52%
+  80  Viburnum_propinquum            6.72%    passed     99.88%
+  81  Viburnum_prunifolium           6.72%    passed     99.60%
+  82  Viburnum_punctatum             6.72%    passed     99.36%
+  83  Viburnum_pyramidatum           6.72%    passed     99.68%
+  84  Viburnum_rafinesquianum        6.72%    passed     99.29%
+  85  Viburnum_rhytidophyllum        6.72%    passed     99.71%
+  86  Viburnum_rigidum               6.72%    passed     98.69%
+  87  Viburnum_sambucinum            6.72%    passed     99.76%
+  88  Viburnum_schensianum           6.72%    passed     99.71%
+  89  Viburnum_sempervirens         10.78%    passed     91.01%
+  90  Viburnum_setigerum             6.72%    passed     99.43%
+  91  Viburnum_sieboldii             6.72%    passed     99.92%
+  92  Viburnum_stellatotomentosum    6.72%    passed     99.95%
+  93  Viburnum_stenocalyx            6.72%    passed     99.83%
+  94  Viburnum_subalpinum            6.72%    passed     99.64%
+  95  Viburnum_suspensum             6.72%    passed     99.85%
+  96  Viburnum_taitoense             7.00%    passed     99.97%
+  97  Viburnum_taiwanianum           6.72%    passed     99.92%
+  98  Viburnum_tashiroi              6.72%    passed     99.50%
+  99  Viburnum_ternatum              6.72%    passed     98.69%
+ 100  Viburnum_tinoides             31.51%    passed     82.34%
+ 101  Viburnum_tinus                 6.72%    passed     99.23%
+ 102  Viburnum_toronis               6.72%    passed     99.81%
+ 103  Viburnum_triphyllum            6.72%    passed     99.95%
+ 104  Viburnum_undulatum             6.72%    passed     99.95%
+ 105  Viburnum_urceolatum            6.72%    passed     99.92%
+ 106  Viburnum_utile                 6.72%    passed     99.71%
+ 107  Viburnum_veitchii             42.93%    passed     64.55%
+ 108  Viburnum_vernicosum            6.72%    passed     98.67%
+ 109  Viburnum_wrightii              6.72%    passed     99.75%
+ 110  Viburnum_yunnanense            6.72%    passed     99.70%
+****  TOTAL                          8.26%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: Viburnum_erosum is identical to Viburnum_adenophorum but kept for subsequent analysis
+NOTE: Viburnum_integrifolium is identical to Viburnum_annamensis but kept for subsequent analysis
+NOTE: Viburnum_calvum is identical to Viburnum_atrocyaneum but kept for subsequent analysis
+NOTE: Viburnum_carlesii is identical to Viburnum_bitchiuense but kept for subsequent analysis
+NOTE: Viburnum_molle is identical to Viburnum_bracteatum but kept for subsequent analysis
+NOTE: Viburnum_oliganthum is identical to Viburnum_brevitubum but kept for subsequent analysis
+NOTE: Viburnum_rhytidophyllum is identical to Viburnum_chinshanense but kept for subsequent analysis
+NOTE: Viburnum_cylindricum is identical to Viburnum_coriaceum but kept for subsequent analysis
+NOTE: Viburnum_suspensum is identical to Viburnum_farreri but kept for subsequent analysis
+NOTE: Viburnum_ichangense is identical to Viburnum_flavescens but kept for subsequent analysis
+NOTE: Viburnum_mullaha is identical to Viburnum_foetidum but kept for subsequent analysis
+NOTE: Viburnum_lantanoides is identical to Viburnum_furcatum but kept for subsequent analysis
+NOTE: Viburnum_vernicosum is identical to Viburnum_hispidulum but kept for subsequent analysis
+NOTE: Viburnum_sambucinum is identical to Viburnum_inopinatum but kept for subsequent analysis
+NOTE: Viburnum_jucundum is identical to Viburnum_jamesonii but kept for subsequent analysis
+NOTE: Viburnum_pyramidatum is identical to Viburnum_lutescens but kept for subsequent analysis
+NOTE: Viburnum_stenocalyx is identical to Viburnum_microphyllum but kept for subsequent analysis
+NOTE: Viburnum_schensianum is identical to Viburnum_mongolicum but kept for subsequent analysis
+NOTE: Viburnum_urceolatum is identical to Viburnum_taiwanianum but kept for subsequent analysis
+NOTE: 15 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: Viburnum_fordiae (identical to Viburnum_adenophorum) is ignored but added at the end
+NOTE: Viburnum_luzonicum (identical to Viburnum_adenophorum) is ignored but added at the end
+NOTE: Viburnum_setigerum (identical to Viburnum_adenophorum) is ignored but added at the end
+NOTE: Viburnum_japonicum (identical to Viburnum_annamensis) is ignored but added at the end
+NOTE: Viburnum_melanocarpum (identical to Viburnum_annamensis) is ignored but added at the end
+NOTE: Viburnum_parvifolium (identical to Viburnum_annamensis) is ignored but added at the end
+NOTE: Viburnum_tashiroi (identical to Viburnum_annamensis) is ignored but added at the end
+NOTE: Viburnum_lantana (identical to Viburnum_bitchiuense) is ignored but added at the end
+NOTE: Viburnum_rafinesquianum (identical to Viburnum_bracteatum) is ignored but added at the end
+NOTE: Viburnum_yunnanense (identical to Viburnum_brevitubum) is ignored but added at the end
+NOTE: Viburnum_utile (identical to Viburnum_chinshanense) is ignored but added at the end
+NOTE: Viburnum_lobophyllum (identical to Viburnum_flavescens) is ignored but added at the end
+NOTE: Viburnum_lautum (identical to Viburnum_jamesonii) is ignored but added at the end
+NOTE: Viburnum_triphyllum (identical to Viburnum_jamesonii) is ignored but added at the end
+NOTE: Viburnum_undulatum (identical to Viburnum_jamesonii) is ignored but added at the end
+
+For your convenience alignment with unique sequences printed to rbcL_aligned.fasta.uniqueseq.phy
+
+NOTE: Restoring information from model checkpoint file rbcL_aligned.fasta.model.gz
+
+CHECKPOINT: Initial tree restored
+NOTE: ModelFinder requires 4 MB RAM!
+ModelFinder will test 286 DNA models (sample size: 1428) ...
+ No. Model         -LnL         df  AIC          AICc         BIC
+  1  JC            3257.308     187 6888.617     6945.320     7872.990
+  2  JC+I          3074.808     188 6525.617     6582.973     7515.254
+  3  JC+G4         3143.742     188 6663.484     6720.840     7653.122
+  4  JC+I+G4       3062.539     189 6503.078     6561.091     7497.979
+  5  JC+R2         3059.256     189 6496.512     6554.525     7491.413
+  6  JC+R3         3059.292     191 6500.584     6559.924     7506.014
+ 14  F81+F         3246.119     190 6872.238     6930.912     7872.404
+ 15  F81+F+I       3064.136     191 6510.272     6569.612     7515.702
+ 16  F81+F+G4      3132.672     191 6647.345     6706.685     7652.775
+ 17  F81+F+I+G4    3051.888     192 6487.775     6547.785     7498.469
+ 18  F81+F+R2      3048.613     192 6481.225     6541.235     7491.919
+ 19  F81+F+R3      3048.610     194 6485.219     6546.582     7506.441
+ 27  K2P           3256.432     188 6888.864     6946.220     7878.502
+ 28  K2P+I         3073.947     189 6525.894     6583.907     7520.796
+ 29  K2P+G4        3142.889     189 6663.777     6721.790     7658.679
+ 30  K2P+I+G4      3061.581     190 6503.163     6561.837     7503.328
+ 31  K2P+R2        3058.500     190 6497.001     6555.675     7497.166
+ 32  K2P+R3        3058.499     192 6500.997     6561.007     7511.691
+ 40  HKY+F         3245.249     191 6872.499     6931.839     7877.929
+ 41  HKY+F+I       3063.260     192 6510.519     6570.529     7521.213
+ 42  HKY+F+G4      3131.793     192 6647.585     6707.595     7658.279
+ 43  HKY+F+I+G4    3050.838     193 6487.677     6548.361     7503.634
+ 44  HKY+F+R2      3047.821     193 6481.643     6542.327     7497.600
+ 45  HKY+F+R3      3047.821     195 6485.641     6547.687     7512.127
+ 53  TNe           3256.424     189 6890.848     6948.861     7885.750
+ 54  TNe+I         3073.362     190 6526.723     6585.398     7526.889
+ 55  TNe+G4        3142.847     190 6665.694     6724.369     7665.860
+ 56  TNe+I+G4      3061.310     191 6504.621     6563.961     7510.051
+ 57  TNe+R2        3058.437     191 6498.874     6558.213     7504.303
+ 58  TNe+R3        3058.437     193 6502.873     6563.557     7518.831
+ 66  TN+F          3245.159     192 6874.319     6934.328     7885.012
+ 67  TN+F+I        3063.012     193 6512.023     6572.707     7527.981
+ 68  TN+F+G4       3131.772     193 6649.543     6710.227     7665.501
+ 69  TN+F+I+G4     3050.744     194 6489.488     6550.850     7510.710
+ 70  TN+F+R2       3047.556     194 6483.111     6544.474     7504.333
+ 71  TN+F+R3       3047.556     196 6487.112     6549.844     7518.861
+ 79  K3P           3256.415     189 6890.830     6948.843     7885.731
+ 80  K3P+I         3073.930     190 6527.861     6586.535     7528.027
+ 81  K3P+G4        3142.874     190 6665.748     6724.423     7665.914
+ 82  K3P+I+G4      3061.364     191 6504.729     6564.068     7510.158
+ 83  K3P+R2        3058.473     191 6498.946     6558.286     7504.376
+ 84  K3P+R3        3058.473     193 6502.947     6563.630     7518.904
+ 92  K3Pu+F        3245.231     192 6874.463     6934.473     7885.157
+ 93  K3Pu+F+I      3063.242     193 6512.484     6573.168     7528.442
+ 94  K3Pu+F+G4     3131.778     193 6649.556     6710.240     7665.514
+ 95  K3Pu+F+I+G4   3050.712     194 6489.424     6550.787     7510.646
+ 96  K3Pu+F+R2     3047.789     194 6483.579     6544.941     7504.800
+ 97  K3Pu+F+R3     3047.789     196 6487.577     6550.310     7519.327
+105  TPM2+F        3243.833     192 6871.667     6931.676     7882.360
+106  TPM2+F+I      3062.657     193 6511.314     6571.998     7527.272
+107  TPM2+F+G4     3130.488     193 6646.975     6707.659     7662.933
+108  TPM2+F+I+G4   3050.361     194 6488.722     6550.084     7509.943
+109  TPM2+F+R2     3047.792     194 6483.584     6544.946     7504.806
+110  TPM2+F+R3     3047.792     196 6487.584     6550.317     7519.334
+118  TPM2u+F       3243.832     192 6871.664     6931.674     7882.358
+119  TPM2u+F+I     3062.656     193 6511.311     6571.995     7527.269
+120  TPM2u+F+G4    3130.486     193 6646.973     6707.657     7662.931
+121  TPM2u+F+I+G4  3050.357     194 6488.714     6550.076     7509.936
+122  TPM2u+F+R2    3047.790     194 6483.580     6544.943     7504.802
+123  TPM2u+F+R3    3047.790     196 6487.580     6550.313     7519.330
+131  TPM3+F        3243.023     192 6870.046     6930.055     7880.739
+132  TPM3+F+I      3061.509     193 6509.018     6569.702     7524.976
+133  TPM3+F+G4     3129.292     193 6644.584     6705.268     7660.542
+134  TPM3+F+I+G4   3048.748     194 6485.496     6546.859     7506.718
+135  TPM3+F+R2     3045.772     194 6479.545     6540.907     7500.767
+136  TPM3+F+R3     3045.774     196 6483.548     6546.281     7515.298
+144  TPM3u+F       3243.027     192 6870.054     6930.063     7880.747
+145  TPM3u+F+I     3061.514     193 6509.027     6569.711     7524.985
+146  TPM3u+F+G4    3129.295     193 6644.590     6705.274     7660.548
+147  TPM3u+F+I+G4  3048.753     194 6485.507     6546.869     7506.729
+148  TPM3u+F+R2    3045.774     194 6479.548     6540.911     7500.770
+149  TPM3u+F+R3    3045.774     196 6483.547     6546.280     7515.297
+157  TIMe          3256.412     190 6892.824     6951.498     7892.990
+158  TIMe+I        3073.347     191 6528.695     6588.034     7534.124
+159  TIMe+G4       3142.835     191 6667.671     6727.010     7673.100
+160  TIMe+I+G4     3061.223     192 6506.445     6566.455     7517.139
+161  TIMe+R2       3058.420     192 6500.841     6560.850     7511.534
+162  TIMe+R3       3058.417     194 6504.834     6566.197     7526.056
+170  TIM+F         3245.142     193 6876.284     6936.968     7892.242
+171  TIM+F+I       3062.997     194 6513.995     6575.358     7535.217
+172  TIM+F+G4      3131.760     194 6651.520     6712.883     7672.742
+173  TIM+F+I+G4    3050.700     195 6491.400     6553.445     7517.886
+174  TIM+F+R2      3047.529     195 6485.057     6547.103     7511.543
+175  TIM+F+R3      3047.527     197 6489.054     6552.479     7526.068
+183  TIM2e         3255.179     190 6890.358     6949.032     7890.524
+184  TIM2e+I       3072.939     191 6527.879     6587.218     7533.308
+185  TIM2e+G4      3141.750     191 6665.500     6724.840     7670.930
+186  TIM2e+I+G4    3060.998     192 6505.996     6566.006     7516.690
+187  TIM2e+R2      3058.418     192 6500.836     6560.846     7511.530
+188  TIM2e+R3      3058.417     194 6504.833     6566.196     7526.055
+196  TIM2+F        3243.745     193 6873.491     6934.175     7889.449
+197  TIM2+F+I      3062.423     194 6512.845     6574.208     7534.067
+198  TIM2+F+G4     3130.469     194 6648.938     6710.300     7670.160
+199  TIM2+F+I+G4   3050.351     195 6490.703     6552.748     7517.188
+200  TIM2+F+R2     3047.537     195 6485.075     6547.120     7511.560
+201  TIM2+F+R3     3047.537     197 6489.074     6552.498     7526.088
+209  TIM3e         3255.650     190 6891.301     6949.975     7891.467
+210  TIM3e+I       3072.827     191 6527.655     6586.994     7533.084
+211  TIM3e+G4      3142.078     191 6666.156     6725.496     7671.586
+212  TIM3e+I+G4    3060.815     192 6505.631     6565.640     7516.324
+213  TIM3e+R2      3057.992     192 6499.984     6559.994     7510.678
+214  TIM3e+R3      3057.992     194 6503.984     6565.347     7525.206
+222  TIM3+F        3242.940     193 6871.879     6932.563     7887.837
+223  TIM3+F+I      3061.268     194 6510.536     6571.898     7531.758
+224  TIM3+F+G4     3129.273     194 6646.546     6707.909     7667.768
+225  TIM3+F+I+G4   3048.764     195 6487.528     6549.573     7514.013
+226  TIM3+F+R2     3045.545     195 6481.089     6543.135     7507.575
+227  TIM3+F+R3     3045.546     197 6485.092     6548.516     7522.106
+235  TVMe          3254.430     191 6890.861     6950.200     7896.290
+236  TVMe+I        3073.014     192 6530.029     6590.038     7540.722
+237  TVMe+G4       3141.041     192 6666.082     6726.092     7676.776
+238  TVMe+I+G4     3060.734     193 6507.469     6568.153     7523.426
+239  TVMe+R2       3058.011     193 6502.023     6562.707     7517.981
+240  TVMe+R3       3058.010     195 6506.019     6568.065     7532.505
+248  TVM+F         3241.624     194 6871.248     6932.611     7892.470
+249  TVM+F+I       3060.917     195 6511.833     6573.879     7538.319
+250  TVM+F+G4      3128.002     195 6646.004     6708.049     7672.490
+251  TVM+F+I+G4    3048.408     196 6488.817     6551.550     7520.567
+252  TVM+F+R2      3045.754     196 6483.508     6546.241     7515.258
+253  TVM+F+R3      3045.756     198 6487.512     6551.632     7529.790
+261  SYM           3254.433     192 6892.867     6952.876     7903.560
+262  SYM+I         3072.433     193 6530.866     6591.550     7546.824
+263  SYM+G4        3141.005     193 6668.010     6728.694     7683.968
+264  SYM+I+G4      3060.593     194 6509.187     6570.549     7530.409
+265  SYM+R2        3057.976     194 6503.951     6565.314     7525.173
+266  SYM+R3        3057.973     196 6507.946     6570.679     7539.696
+274  GTR+F         3241.546     195 6873.091     6935.137     7899.577
+275  GTR+F+I       3060.689     196 6513.378     6576.110     7545.128
+276  GTR+F+G4      3127.986     196 6647.972     6710.705     7679.722
+277  GTR+F+I+G4    3048.408     197 6490.815     6554.240     7527.829
+278  GTR+F+R2      3045.535     197 6485.071     6548.495     7522.085
+279  GTR+F+R3      3045.535     199 6489.070     6553.891     7536.612
+Akaike Information Criterion:           TPM3+F+R2
+Corrected Akaike Information Criterion: TPM3+F+R2
+Bayesian Information Criterion:         JC+R2
+Best-fit model: JC+R2 chosen according to BIC
+
+All model information printed to rbcL_aligned.fasta.model.gz
+CPU time for ModelFinder: 0.035 seconds (0h:0m:0s)
+Wall-clock time for ModelFinder: 0.038 seconds (0h:0m:0s)
+
+NOTE: 0 MB RAM (0 GB) is required!
+Measuring multi-threading efficiency up to 36 CPU cores
+Increase to 10 rounds for branch lengths
+2932 trees examined
+Threads: 1 / Time: 36.013 sec / Speedup: 1.000 / Efficiency: 100% / LogL: -6242
+Threads: 2 / Time: 38.700 sec / Speedup: 0.931 / Efficiency: 47% / LogL: -6242
+BEST NUMBER OF THREADS: 1
+
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -3219.694
+2. Current log-likelihood: -3213.640
+3. Current log-likelihood: -3206.066
+4. Current log-likelihood: -3198.631
+5. Current log-likelihood: -3189.868
+6. Current log-likelihood: -3178.964
+7. Current log-likelihood: -3165.018
+8. Current log-likelihood: -3146.718
+9. Current log-likelihood: -3122.198
+10. Current log-likelihood: -3092.597
+11. Current log-likelihood: -3069.156
+12. Current log-likelihood: -3061.471
+13. Current log-likelihood: -3060.245
+14. Current log-likelihood: -3059.733
+15. Current log-likelihood: -3059.478
+16. Current log-likelihood: -3059.374
+Optimal log-likelihood: -3059.290
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Site proportion and rates:  (0.973,0.256) (0.027,28.262)
+Parameters optimization took 16 rounds (0.210 sec)
+Computing ML distances based on estimated model parameters... 0.025 sec
+Computing BIONJ tree...
+0.004 seconds
+Log-likelihood of BIONJ tree: -3064.324
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.343 second
+Computing log-likelihood of 98 initial trees ... 0.514 seconds
+Current best score: -3048.188
+
+Do NNI search on 20 best initial trees
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -3046.600
+Iteration 10 / LogL: -3049.243 / Time: 0h:1m:16s
+Iteration 20 / LogL: -3051.977 / Time: 0h:1m:16s
+Finish initializing candidate tree set (20)
+Current best tree score: -3046.600 / CPU time: 1.674
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Iteration 30 / LogL: -3046.631 / Time: 0h:1m:17s (0h:3m:9s left)
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 32: -3045.478
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 34: -3045.422
+BETTER TREE FOUND at iteration 38: -3045.418
+Iteration 40 / LogL: -3053.979 / Time: 0h:1m:17s (0h:3m:15s left)
+BETTER TREE FOUND at iteration 41: -3045.418
+Iteration 50 / LogL: -3046.078 / Time: 0h:1m:18s (0h:2m:25s left)
+BETTER TREE FOUND at iteration 51: -3045.413
+Iteration 60 / LogL: -3045.418 / Time: 0h:1m:19s (0h:2m:1s left)
+BETTER TREE FOUND at iteration 61: -3045.412
+BETTER TREE FOUND at iteration 65: -3045.411
+BETTER TREE FOUND at iteration 67: -3045.410
+BETTER TREE FOUND at iteration 70: -3045.408
+Iteration 70 / LogL: -3045.408 / Time: 0h:1m:19s (0h:1m:55s left)
+BETTER TREE FOUND at iteration 77: -3045.408
+Iteration 80 / LogL: -3048.946 / Time: 0h:1m:20s (0h:1m:38s left)
+BETTER TREE FOUND at iteration 85: -3045.408
+Iteration 90 / LogL: -3047.744 / Time: 0h:1m:20s (0h:1m:26s left)
+Iteration 100 / LogL: -3045.458 / Time: 0h:1m:21s (0h:1m:9s left)
+BETTER TREE FOUND at iteration 109: -3045.407
+Iteration 110 / LogL: -3066.235 / Time: 0h:1m:22s (0h:1m:14s left)
+Iteration 120 / LogL: -3045.432 / Time: 0h:1m:22s (0h:1m:1s left)
+BETTER TREE FOUND at iteration 121: -3045.407
+BETTER TREE FOUND at iteration 122: -3045.406
+Iteration 130 / LogL: -3045.458 / Time: 0h:1m:23s (0h:0m:59s left)
+Iteration 140 / LogL: -3046.067 / Time: 0h:1m:23s (0h:0m:49s left)
+Iteration 150 / LogL: -3045.410 / Time: 0h:1m:24s (0h:0m:40s left)
+BETTER TREE FOUND at iteration 159: -3045.406
+Iteration 160 / LogL: -3078.792 / Time: 0h:1m:25s (0h:0m:52s left)
+BETTER TREE FOUND at iteration 166: -3045.406
+Iteration 170 / LogL: -3047.035 / Time: 0h:1m:25s (0h:0m:48s left)
+Iteration 180 / LogL: -3049.984 / Time: 0h:1m:26s (0h:0m:41s left)
+Iteration 190 / LogL: -3045.407 / Time: 0h:1m:26s (0h:0m:34s left)
+BETTER TREE FOUND at iteration 196: -3045.405
+Iteration 200 / LogL: -3049.936 / Time: 0h:1m:27s (0h:0m:42s left)
+Iteration 210 / LogL: -3057.087 / Time: 0h:1m:27s (0h:0m:36s left)
+BETTER TREE FOUND at iteration 214: -3045.404
+Iteration 220 / LogL: -3046.595 / Time: 0h:1m:28s (0h:0m:38s left)
+BETTER TREE FOUND at iteration 229: -3045.403
+Iteration 230 / LogL: -3046.559 / Time: 0h:1m:29s (0h:0m:38s left)
+Iteration 240 / LogL: -3045.415 / Time: 0h:1m:29s (0h:0m:33s left)
+Iteration 250 / LogL: -3046.062 / Time: 0h:1m:30s (0h:0m:28s left)
+BETTER TREE FOUND at iteration 254: -3045.402
+Iteration 260 / LogL: -3045.403 / Time: 0h:1m:30s (0h:0m:33s left)
+BETTER TREE FOUND at iteration 268: -3045.402
+Iteration 270 / LogL: -3047.033 / Time: 0h:1m:31s (0h:0m:33s left)
+Iteration 280 / LogL: -3045.450 / Time: 0h:1m:32s (0h:0m:29s left)
+Iteration 290 / LogL: -3052.545 / Time: 0h:1m:32s (0h:0m:25s left)
+Iteration 300 / LogL: -3050.002 / Time: 0h:1m:33s (0h:0m:21s left)
+Iteration 310 / LogL: -3051.658 / Time: 0h:1m:33s (0h:0m:17s left)
+Iteration 320 / LogL: -3045.455 / Time: 0h:1m:34s (0h:0m:14s left)
+BETTER TREE FOUND at iteration 330: -3045.400
+Iteration 330 / LogL: -3045.400 / Time: 0h:1m:35s (0h:0m:28s left)
+Iteration 340 / LogL: -3048.952 / Time: 0h:1m:35s (0h:0m:25s left)
+Iteration 350 / LogL: -3045.452 / Time: 0h:1m:36s (0h:0m:22s left)
+Iteration 360 / LogL: -3045.403 / Time: 0h:1m:36s (0h:0m:18s left)
+Iteration 370 / LogL: -3066.225 / Time: 0h:1m:37s (0h:0m:15s left)
+Iteration 380 / LogL: -3048.662 / Time: 0h:1m:38s (0h:0m:12s left)
+BETTER TREE FOUND at iteration 383: -3045.400
+Iteration 390 / LogL: -3046.723 / Time: 0h:1m:38s (0h:0m:23s left)
+Iteration 400 / LogL: -3057.619 / Time: 0h:1m:39s (0h:0m:20s left)
+Iteration 410 / LogL: -3045.402 / Time: 0h:1m:39s (0h:0m:17s left)
+Iteration 420 / LogL: -3045.449 / Time: 0h:1m:40s (0h:0m:15s left)
+BETTER TREE FOUND at iteration 428: -3045.399
+Iteration 430 / LogL: -3046.985 / Time: 0h:1m:40s (0h:0m:23s left)
+Iteration 440 / LogL: -3049.458 / Time: 0h:1m:41s (0h:0m:20s left)
+Iteration 450 / LogL: -3045.402 / Time: 0h:1m:42s (0h:0m:17s left)
+Iteration 460 / LogL: -3046.670 / Time: 0h:1m:42s (0h:0m:15s left)
+Iteration 470 / LogL: -3059.347 / Time: 0h:1m:43s (0h:0m:12s left)
+Iteration 480 / LogL: -3045.400 / Time: 0h:1m:43s (0h:0m:10s left)
+Iteration 490 / LogL: -3045.403 / Time: 0h:1m:44s (0h:0m:8s left)
+Iteration 500 / LogL: -3045.402 / Time: 0h:1m:45s (0h:0m:5s left)
+Iteration 510 / LogL: -3079.411 / Time: 0h:1m:45s (0h:0m:3s left)
+Iteration 520 / LogL: -3045.449 / Time: 0h:1m:46s (0h:0m:1s left)
+TREE SEARCH COMPLETED AFTER 529 ITERATIONS / Time: 0h:1m:46s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -3045.399
+Optimal log-likelihood: -3045.396
+Rate parameters:  A-C: 1.00000  A-G: 1.00000  A-T: 1.00000  C-G: 1.00000  C-T: 1.00000  G-T: 1.00000
+Base frequencies:  A: 0.250  C: 0.250  G: 0.250  T: 0.250
+Site proportion and rates:  (0.971,0.235) (0.029,26.596)
+Parameters optimization took 1 rounds (0.012 sec)
+BEST SCORE FOUND : -3045.396
+Total tree length: 0.117
+
+Total number of iterations: 529
+CPU time used for tree search: 31.702 sec (0h:0m:31s)
+Wall-clock time used for tree search: 31.795 sec (0h:0m:31s)
+Total CPU time used: 145.279 sec (0h:2m:25s)
+Total wall-clock time used: 106.792 sec (0h:1m:46s)
+
+Analysis results written to: 
+  IQ-TREE report:                rbcL_aligned.fasta.iqtree
+  Maximum-likelihood tree:       rbcL_aligned.fasta.treefile
+  Likelihood distances:          rbcL_aligned.fasta.mldist
+  Screen log file:               rbcL_aligned.fasta.log
+
+Date and Time: Sun Nov 29 14:14:48 2020
