@@ -1,7 +1,7 @@
 ---
-title: "Minimum Viable Analysis"
+title: "A phylogenetic approach to palisade cell functional trait analysis in Viburnum"
 author: "Aleca Borsuk"
-date: "11/2/2020"
+date: "11/30/2020"
 output: github_document
 ---
 
@@ -11,6 +11,9 @@ library(ape)
 library(geiger)
 library(ggtree)
 library(knitr)
+library(phylosignal)
+library(nlme)
+library(phytools)
 ```
 
 ## Maximum Likelihood
@@ -77,8 +80,8 @@ cols <- c("skyblue2","blue","gold","darkgoldenrod3")
 palisade.type_plot = ggtree(phy_reduced) %<+% df + 
   geom_tiplab( fontface = "italic", offset = 0.005) +
   scale_color_manual(values=cols) + 
-  xlim(0, .35) +
-  #theme_tree2(legend.position='right')+
+  xlim(0, 1) +
+  theme_tree2(legend.position='right')+
   geom_tippoint( aes(color=PalisadeType), size=3, alpha=1 )
 
 palisade.type_plot
@@ -100,11 +103,39 @@ names(df1)=df[,1]
 names(df2)=df[,1]
 
 # run ANOVA
-x1=aov.phylo(df2~df1, phy_reduced, nsim=50)
+x1=aov.phylo(df2~df1, phy_reduced, nsim=10000)
 # formatted summary table
-kable(print(attributes(x1)$summary))
+kable(attributes(x1)$summary)
 
 # boxplot visualization
 plot(df$Amax~df$PalisadeType, col=cols)
+
 ```
-I believe the ANOVA test shows that there is a strong phylogenetic signal for maximum photosynthetic rate (Amax), but that it is not related to palisade cell type. 
+The p-value for the ANOVA is significant before and insignificant after accounting for phylogenetic signal, indicating that photosynthetic rate is not related to palisade type after accounting for phylogenetic signal.
+
+```{r}
+# ANOVA again with palisade type as a predictor of palisade mesophyll thickness
+
+# anova function takes named vectors as input
+df1= df[,2]
+df3 = df[,7]
+names(df1)=df[,1]
+names(df3)=df[,1]
+
+# run ANOVA
+x2=aov.phylo(df3~df1, phy_reduced, nsim=10000)
+# formatted summary table
+kable(attributes(x2)$summary)
+
+# boxplot visualization
+plot(df$Palisade.Mesophyll.Thickness.Mean..mm.~df$PalisadeType, col=cols)
+```
+
+The p-value for the ANOVA is significant before and after accounting for phylogenetic signal, indicating that palisade thickness is related to palisade type after accounting for phylogenetic signal.
+
+## 
+```{r}
+# 
+
+```
+
