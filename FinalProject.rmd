@@ -33,12 +33,13 @@ is.rooted(phy)
 #View the phylogeny
 plot(phy, no.margin=TRUE,edge.width=1, cex = 0.5)
 
-# time-calibrate phylogeny (relative to root = 1)
+# Make ultrameric phylogeny (relative to root depth = 1)
 phy_calibration <- makeChronosCalib(phy, node = "root", age.min = 1, age.max =
 1, interactive = FALSE, soft.bounds = FALSE)
 
 #make the phylogeny ultrameric using relative calibration
-phy_ultrameric <- chronos(phy, lambda = 1, model = "relaxed", calibration = phy_calibration, control = chronos.control() )
+phy_ultrameric <- chronos(phy, lambda = 1, model = "correlated", calibration = phy_calibration, control = chronos.control() )
+class( phy_ultrameric ) = "phylo"
 
 #View the ultrameric phylogeny
 plot(phy_ultrameric, no.margin=TRUE,edge.width=1, cex = 0.5)
@@ -46,17 +47,17 @@ plot(phy_ultrameric, no.margin=TRUE,edge.width=1, cex = 0.5)
 ```
 ## Pruning the Tree to Species of Interest
 ```{r}
-# Read in species names to keep. This is also the table with trait data
+# Read in species names of interest for comparative analysis. This is also the table with trait data
 df <- read.csv("PalisadeTraits.csv", header = TRUE)
 
-# Remove the species of interest from the list of species to drop
+# Remove the species of interest from the list of species to drop, then drop tips
 sp_keep <- df$Species
 sp_full <- phy[[4]]
 to.drop <- sp_full [! sp_full %in% sp_keep]
 
-tree_reduced = drop.tip( phy_ultrameric, to.drop )
+phy_reduced = drop.tip( phy_ultrameric, to.drop )
 
-plot( tree_reduced )
+plot( phy_reduced )
 
 ```
 
@@ -66,22 +67,18 @@ Visualization of the character 'palisade.type' mapped onto the tree tips.
 
 ```{r}
 
-# View species names
-species.names <- phy[[4]]
-species.names
-
-# Assign to data frame
-D = data.frame(species = phy[[4]],
-               palisade.type = c("H1", "I2", "I1","I2", "I1", "H1", "I2", "I2", "I2", "I1", "H1", "H2"))
-
 # View data in table format
-kable(D)
+kable(df)
 
-# Plot
-palisade.type_plot = ggtree(phy) %<+% D + 
-  geom_tiplab( fontface = "italic") +
-  #xlim(0, 300) +
-  geom_tippoint( aes(color=palisade.type), size=3, alpha=1 )
+# Plot with palisade type
+cols <- c("skyblue2","blue","gold","darkgoldenrod3")
+
+palisade.type_plot = ggtree(phy_reduced) %<+% df + 
+  geom_tiplab( fontface = "italic", offset = 0.002) +
+  scale_color_manual(values=cols) + 
+  xlim(0, .3) +
+  #theme_tree2(legend.position='right')+
+  geom_tippoint( aes(color=PalisadeType), size=3, alpha=1 )
 
 palisade.type_plot
 
