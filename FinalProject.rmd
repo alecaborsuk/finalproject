@@ -133,9 +133,89 @@ plot(df$Palisade.Mesophyll.Thickness.Mean..mm.~df$PalisadeType, col=cols)
 
 The p-value for the ANOVA is significant before and after accounting for phylogenetic signal, indicating that palisade thickness is related to palisade type after accounting for phylogenetic signal.
 
-## 
+## Phylognetic Independent Contrasts
 ```{r}
-# 
+# Relationship between palisade mesophyll thickness and photosynthetic rate
+
+# Extract columns
+amax<-df[,"Amax"]
+palisade.thickness<-df[,"Palisade.Mesophyll.Thickness.Mean..mm."]
+
+# Give them names
+names(amax)<-names(palisade.thickness)<-df$Species
+
+# Calculate PICs
+aPic<-pic(amax, phy_reduced)
+tPic<-pic(palisade.thickness, phy_reduced)
+
+# Make a model
+picModel<-lm(aPic~tPic-1)
+
+# Yes, significant
+summary(picModel)
+
+# plot results
+plot(aPic~tPic)+
+abline(a=0, b=coef(picModel))
 
 ```
+
+```{r}
+# Relationship between stomatal density and photosynthetic rate
+
+# Extract columns
+amax<-df[,"Amax"]
+sav<-df[,"Palisade.SAmes.V"]
+
+# Give them names
+names(amax)<-names(sav)<-df$Species
+
+# Calculate PICs
+aPic<-pic(amax, phy_reduced)
+sPic<-pic(sav, phy_reduced)
+
+# Make a model
+picModel<-lm(aPic~sPic-1)
+
+# Yes, significant
+summary(picModel)
+
+# plot results
+plot(aPic~sPic)+
+abline(a=0, b=coef(picModel))
+```
+
+
+
+```{r, fig.keep = 'last'}
+# Using phylogenetic generalized least squares (PGLS) to control for potential phylogenetic signal in the response (and, hence, non-independence of the residuals). This helps us understand if trait relationships are driven by ancestry rather than selection.
+
+# Get data and set species to row names. Also need column with species names
+df.temp <- read.csv("PalisadeTraits.csv")
+df4 <- read.csv("PalisadeTraits.csv", row.names=1)
+df4$Species <- df.temp$Species
+
+# Use Geiger to check if names match
+name.check(phy_reduced, df4)
+
+# Run model using discrete predictor (palisade type)
+pglsModel<-gls(Amax~Palisade.SAmes.V, correlation=corBrownian(phy=phy_reduced, form = ~Species), data=df4, method="ML")
+coef(pglsModel)
+summary(pglsModel)
+
+layout(t(1:2))
+plot(df4$Amax~df4$Palisade.SAmes.V)+
+abline(a=coef(pglsModel)[1], b=coef(pglsModel)[2], col = "red")
+title("PGLS")
+# Let's compare with a linear model without phylogenetic correction
+plot(df4$Amax~df4$Palisade.SAmes.V)+
+abline(lm(df4$Amax~df4$Palisade.SAmes.V), col = "red")
+title("original regression")
+```
+```{r}
+# Let's compare with a linear model without phylogenetic correction
+plot(df4$Amax~df4$Palisade.SAmes.V)+
+abline(lm(df4$Amax~df4$Palisade.SAmes.V))
+```
+
 
