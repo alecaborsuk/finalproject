@@ -135,33 +135,33 @@ The p-value for the ANOVA is significant before and after accounting for phyloge
 
 ## Phylognetic Independent Contrasts
 ```{r}
-# Relationship between palisade mesophyll thickness and photosynthetic rate
+# Relationship between palisade surface area to volume ratio (Palisade.SAmes.V) and palisade cell length (Palisade.Length.Mean..mm.)
 
 # Extract columns
-amax<-df[,"Amax"]
-palisade.thickness<-df[,"Palisade.Mesophyll.Thickness.Mean..mm."]
+sav.mes<-df[,"Palisade.SAmes.V"]
+palisade.length<-df[,"Palisade.Length.Mean..mm."]
 
 # Give them names
-names(amax)<-names(palisade.thickness)<-df$Species
+names(sav.mes)<-names(palisade.length)<-df$Species
 
 # Calculate PICs
-aPic<-pic(amax, phy_reduced)
-tPic<-pic(palisade.thickness, phy_reduced)
+aPic<-pic(sav.mes, phy_reduced)
+lPic<-pic(palisade.length, phy_reduced)
 
 # Make a model
-picModel<-lm(aPic~tPic-1)
+picModel<-lm(aPic~lPic-1)
 
 # Yes, significant
 summary(picModel)
 
 # plot results
-plot(aPic~tPic)+
+plot(aPic~lPic)+
 abline(a=0, b=coef(picModel))
 
 ```
 
 ```{r}
-# Relationship between stomatal density and photosynthetic rate
+# Relationship between SAV and photosynthetic rate
 
 # Extract columns
 amax<-df[,"Amax"]
@@ -198,24 +198,42 @@ df4$Species <- df.temp$Species
 # Use Geiger to check if names match
 name.check(phy_reduced, df4)
 
-# Run model using discrete predictor (palisade type)
+# Variables = photosynthetic rate and surface area to volume ratio
+
+# Run pgls model 
 pglsModel<-gls(Amax~Palisade.SAmes.V, correlation=corBrownian(phy=phy_reduced, form = ~Species), data=df4, method="ML")
 coef(pglsModel)
 summary(pglsModel)
 
+# Plot and compare with a linear model without phylogenetic correction
 layout(t(1:2))
 plot(df4$Amax~df4$Palisade.SAmes.V)+
 abline(a=coef(pglsModel)[1], b=coef(pglsModel)[2], col = "red")
 title("PGLS")
-# Let's compare with a linear model without phylogenetic correction
+
 plot(df4$Amax~df4$Palisade.SAmes.V)+
 abline(lm(df4$Amax~df4$Palisade.SAmes.V), col = "red")
 title("original regression")
 ```
-```{r}
-# Let's compare with a linear model without phylogenetic correction
-plot(df4$Amax~df4$Palisade.SAmes.V)+
-abline(lm(df4$Amax~df4$Palisade.SAmes.V))
+```{r, fig.keep = 'last'}
+# Using phylogenetic generalized least squares (PGLS) to control for potential phylogenetic signal in the response (and, hence, non-independence of the residuals). This helps us understand if trait relationships are driven by ancestry rather than selection.
+
+# New variables = surface area to volume ratio and palisade cell length
+
+# Run pgls model 
+pglsModel<-gls(Palisade.SAmes.V~Palisade.Length.Mean..mm., correlation=corBrownian(phy=phy_reduced, form = ~Species), data=df4, method="ML")
+coef(pglsModel)
+summary(pglsModel)
+
+# Plot and compare with a linear model without phylogenetic correction
+layout(t(1:2))
+plot(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm.)+
+abline(a=coef(pglsModel)[1], b=coef(pglsModel)[2], col = "red")
+title("PGLS")
+
+plot(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm.)+
+abline(lm(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm.), col = "red")
+title("original regression")
 ```
 
 
