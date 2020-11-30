@@ -205,13 +205,15 @@ pglsModel<-gls(Amax~Palisade.SAmes.V, correlation=corBrownian(phy=phy_reduced, f
 coef(pglsModel)
 summary(pglsModel)
 
+palette( c("skyblue2","blue","gold","darkgoldenrod3"))
+
 # Plot and compare with a linear model without phylogenetic correction
 layout(t(1:2))
-plot(df4$Amax~df4$Palisade.SAmes.V)+
+plot(df4$Amax~df4$Palisade.SAmes.V, pch = 19, col=as.factor(df4$PalisadeType))+
 abline(a=coef(pglsModel)[1], b=coef(pglsModel)[2], col = "red")
 title("PGLS")
 
-plot(df4$Amax~df4$Palisade.SAmes.V)+
+plot(df4$Amax~df4$Palisade.SAmes.V, pch = 19, col=as.factor(df4$PalisadeType))+
 abline(lm(df4$Amax~df4$Palisade.SAmes.V), col = "red")
 title("original regression")
 ```
@@ -227,11 +229,11 @@ summary(pglsModel)
 
 # Plot and compare with a linear model without phylogenetic correction
 layout(t(1:2))
-plot(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm.)+
+plot(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm., pch = 19, col=as.factor(df4$PalisadeType))+
 abline(a=coef(pglsModel)[1], b=coef(pglsModel)[2], col = "red")
 title("PGLS")
 
-plot(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm.)+
+plot(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm., pch = 19, col=as.factor(df4$PalisadeType))+
 abline(lm(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm.), col = "red")
 title("original regression")
 ```
