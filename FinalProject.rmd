@@ -48,6 +48,7 @@ plot(phy_ultrameric, no.margin=TRUE,edge.width=1, cex = 0.5)
 ## Pruning the Tree to Species of Interest
 ```{r}
 # Read in species names of interest for comparative analysis. This is also the table with trait data
+# Trait data is a combination of measured and dummy data (study in progress)
 df <- read.csv("PalisadeTraits.csv", header = TRUE)
 
 # Remove the species of interest from the list of species to drop, then drop tips
@@ -70,13 +71,13 @@ Visualization of the character 'palisade.type' mapped onto the tree tips.
 # View data in table format
 kable(df)
 
-# Plot with palisade type
+# Plot tree with tip labels by palisade type
 cols <- c("skyblue2","blue","gold","darkgoldenrod3")
 
 palisade.type_plot = ggtree(phy_reduced) %<+% df + 
-  geom_tiplab( fontface = "italic", offset = 0.002) +
+  geom_tiplab( fontface = "italic", offset = 0.005) +
   scale_color_manual(values=cols) + 
-  xlim(0, .3) +
+  xlim(0, .35) +
   #theme_tree2(legend.position='right')+
   geom_tippoint( aes(color=PalisadeType), size=3, alpha=1 )
 
@@ -84,16 +85,12 @@ palisade.type_plot
 
 ```
 
-```
-
-
 ## Phylogenetically Informed ANOVA
 
 Here using the tree from the above analysis to do a test run of a phylogenetically informed ANOVA. ANOVA method conducted using geiger v2.0 (Pennell et al. 2014):
 
-```{r anova}
-# import trait data
-df <- read.csv("PalisadeTraits.csv", header = TRUE)
+```{r}
+# Data formatting
 # format discrete data as factor
 df$PalisadeType <- as.factor(df$PalisadeType)
 # anova function takes named vectors as input
@@ -103,10 +100,11 @@ names(df1)=df[,1]
 names(df2)=df[,1]
 
 # run ANOVA
-x1=aov.phylo(df2~df1, phy, nsim=50)
-#print(attributes(x1)$summary) # summary table
+x1=aov.phylo(df2~df1, phy_reduced, nsim=50)
+# formatted summary table
+kable(print(attributes(x1)$summary))
 
 # boxplot visualization
-plot(df$Amax~df$PalisadeType)
+plot(df$Amax~df$PalisadeType, col=cols)
 ```
-Currently working with a subset of the full dataset, so getting some errors related to missing taxa, which is fine for now. I believe the ANOVA test shows that there is a strong phylogenetic signal for maximum photosynthetic rate (Amax), but that it is not related to palisade cell type. Just testing the method on secondary data; will for the final project have updated trait data, including more traits, to analyze. 
+I believe the ANOVA test shows that there is a strong phylogenetic signal for maximum photosynthetic rate (Amax), but that it is not related to palisade cell type. 
