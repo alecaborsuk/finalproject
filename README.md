@@ -38,7 +38,7 @@ These workflows will not only help me with my current project, but hopefully be 
 
 ## Methods
 
-The tools I used were... See analysis files at (links to analysis files).
+The tools I used were... See .md file for now, will update this page for final submission. 
 
 ## Results
 
