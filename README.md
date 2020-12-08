@@ -20,9 +20,7 @@ Some guidelines and tips:
 
 OK, here we go.
 
-# Title of my project
-
-**A phylogenetic approach to palisade cell functional trait analysis in Viburnum**
+# A phylogenetic approach to palisade cell functional trait analysis in Viburnum
 
 ## Introduction and Goals
 
