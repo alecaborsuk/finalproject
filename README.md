@@ -1,28 +1,5 @@
 # Phylogenetic Biology - Final Project
-
-## Guidelines - you can delete this section before submission
-
-This repository is a stub for your final project. Fork it, develop your project, and submit it as a pull request. Edit/ delete the text in this readme as needed.
-
-Some guidelines and tips:
-
-- Use the stubs below to write up your final project. Alternatively, if you would like the writeup to be an executable document (with [knitr](http://yihui.name/knitr/), [jupytr](http://jupyter.org/), or other tools), you can create it as a separate file and put a link to it here in the readme.
-
-- For information on formatting text files with markdown, see https://guides.github.com/features/mastering-markdown/ . You can use markdown to include images in this document by linking to files in the repository, eg `![GitHub Logo](/images/logo.png)`.
-
-- The project must be entirely reproducible. In addition to the results, the repository must include all the data (or links to data) and code needed to reproduce the results.
-
-- If you are working with unpublished data that you would prefer not to publicly share at this time, please contact me to discuss options. In most cases, the data can be anonymized in a way that putting them in a public repo does not compromise your other goals.
-
-- Paste references (including urls) into the reference section, and cite them with the general format (Smith at al. 2003).
-
-- Commit and push often as you work.
-
-OK, here we go.
-
-# Title of my project
-
-**A phylogenetic approach to palisade cell functional trait analysis in Viburnum**
+# A phylogenetic approach to palisade cell functional trait analysis in Viburnum
 
 ## Introduction and Goals
 
@@ -38,11 +15,13 @@ These workflows will not only help me with my current project, but hopefully be 
 
 ## Methods
 
-The tools I used were... See analysis files at (links to analysis files).
+The tools I used were... See .md file for now, will update this page for final submission. 
 
 ## Results
 
 The tree in Figure 1...
+
+![](FinalProject_files/figure-gfm/phy-2.png)
 
 ## Discussion
 
@@ -53,4 +32,15 @@ The biggest difficulty in implementing these analyses was...
 If I did these analyses again, I would...
 
 ## References
+
+Vogelmann, T.C. and Martin, G., 1993. The functional significance of palisade tissue: penetration of directional versus diffuse light. Plant, Cell & Environment, 16(1), pp.65-72.
+
+Ho, Q.T., Berghuijs, H.N., Watté, R., Verboven, P., Herremans, E., Yin, X., Retta, M.A., Aernouts, B., Saeys, W., Helfen, L. and Farquhar, G.D., 2016. Three‐dimensional microscale modelling of CO2 transport and light propagation in tomato leaves enlightens photosynthesis. Plant, cell & environment, 39(1), pp.50-61.
+
+Chatelet, D.S., Clement, W.L., Sack, L., Donoghue, M.J. and Edwards, E.J., 2013. The evolution of photosynthetic anatomy in Viburnum (Adoxaceae). International Journal of Plant Sciences, 174(9), pp.1277-1291.
+
+Paradis E, Schliep K (2019). “ape 5.0: an environment for modern phylogenetics and evolutionary analyses in R.” Bioinformatics, 35, 526-528.
+
+Pennell M, Eastman J, Slater G, Brown J, Uyeda J, Fitzjohn R, Alfaro M, Harmon L (2014). “geiger v2.0: an expanded suite of methods for fitting macroevolutionary models to phylogenetic trees.” Bioinformatics, 30, 2216-2218.
+
 
