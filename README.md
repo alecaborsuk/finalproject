@@ -10,8 +10,9 @@ Once light enters the leaf, to reach a chloroplast it must traverse a complex la
 3.	Test for correlated evolution between pairs of continuous physiological traits using the phylogenetic least squares regression and independent contrasts method(s),which can be implemented in the R (R Core Team 2013) package ape (version 5.4.1; Paradis & Schliep 2019). 
 4.	Test for correlated evolution between discrete (palisade cell type) and continuous physiological traits using a phylogenetic ANOVA, which can be implemented in the R (R Core Team 3013) package geiger (Pennell 2014).
 
-These workflows will not only help me with my current project, but hopefully be transferable to projects I work on in the future.
+These workflows will not only help me with my current project, but hopefully be transferable to projects I work on in the future. 
 
+Below are cartoon (green) and 3D-image renderings (blue) of the I- and H-cell morphology: 
 ![](FinalProject_files/images/hcells.png) 
 
 ## Methods
