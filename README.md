@@ -42,6 +42,8 @@ The tools I used were... See .md file for now, will update this page for final s
 
 The tree in Figure 1...
 
+`![Full Tree](/FinalProject_files/figure-gfm/phy-2.png)` 
+
 ## Discussion
 
 These results indicate...
