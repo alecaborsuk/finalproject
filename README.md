@@ -12,7 +12,7 @@ Once light enters the leaf, to reach a chloroplast it must traverse a complex la
 
 These workflows will not only help me with my current project, but hopefully be transferable to projects I work on in the future.
 
-![](FinalProject_files/images/cells.png) 
+![](FinalProject_files/images/hcells.png) 
 
 ## Methods
 
