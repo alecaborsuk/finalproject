@@ -29,11 +29,12 @@ A summary of the workflow:
 ## Results
 
 **Phylogenetic inference**
+
 The best-fit model according to the Bayesian information criterion (BIC) was HKY+F+R3 with a log-likelihood of -8486.2452. The reconstructed tree for 119 species is shown below.
 
 ![](FinalProject_files/images/phy-2.png)
 
-Here is the tree pruned to the species of interest with tips labeled by palisade type. This visualization indicates that there are associations between palisade type and clade, as anticipated from Chatelet et al. (2013). For example, *V. propinquum*, *V. cinnamomifolium*, and *V. davidii* form a monophyletic group and all have I2 type palisade tissue.
+The tree below has been pruned to the species of interest with tips labeled by palisade type. This visualization indicates that there are associations between palisade type and clade, as anticipated from Chatelet et al. (2013). For example, *V. propinquum*, *V. cinnamomifolium*, and *V. davidii* form a monophyletic group and all have I2 type palisade tissue.
 
 ![](FinalProject_files/images/unnamed-chunk-3-1.png) 
 
