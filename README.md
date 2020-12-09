@@ -40,6 +40,10 @@ The tree below has been pruned to the species of interest with tips labeled by p
 
 **Comparative methods**
 
+![](FinalProject_files/figure-gfm/unnamed-chunk-4-1.png) 
+![](FinalProject_files/figure-gfm/unnamed-chunk-5-1.png) 
+![](FinalProject_files/figure-gfm/unnamed-chunk-6-1.png) 
+
 ## Discussion
 
 These results indicate...
