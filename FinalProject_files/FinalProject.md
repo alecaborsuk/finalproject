@@ -54,21 +54,19 @@ phy_ultrameric <- chronos(phy, lambda = 1, model = "correlated", calibration = p
     ## 
     ## Setting initial dates...
     ## Fitting in progress... get a first set of estimates
-    ##          (Penalised) log-lik = -50.90982 
-    ## Optimising rates... dates... -50.90982 
-    ## Optimising rates... dates... -6.67637 
-    ## Optimising rates... dates... -2.489876 
-    ## Optimising rates... dates... -2.263107 
-    ## Optimising rates... dates... -2.123351 
-    ## Optimising rates... dates... -2.015709 
-    ## Optimising rates... dates... -1.983454 
-    ## Optimising rates... dates... -1.982822
+    ##          (Penalised) log-lik = -36.62117 
+    ## Optimising rates... dates... -36.62117 
+    ## Optimising rates... dates... -4.714599 
+    ## Optimising rates... dates... -2.669157 
+    ## Optimising rates... dates... -2.252272 
+    ## Optimising rates... dates... -2.044602 
+    ## Optimising rates... dates... -2.027635
 
     ## Warning: false convergence (8)
 
     ## 
-    ## log-Lik = -1e+100 
-    ## PHIIC = 2e+100
+    ## log-Lik = -1.915301 
+    ## PHIIC = 709.94
 
 ``` r
 class( phy_ultrameric ) = "phylo"
@@ -165,7 +163,7 @@ x1=aov.phylo(df2~df1, phy_reduced, nsim=1000)
     ## 
     ## Response: dat
     ##           Df Sum-Sq Mean-Sq F-value   Pr(>F) Pr(>F) given phy  
-    ## group      3 96.907  32.302  6.4555 0.010484          0.05095 .
+    ## group      3 96.907  32.302  6.4555 0.010484          0.07493 .
     ## Residuals 10 50.038   5.004                                    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -177,7 +175,7 @@ kable(attributes(x1)$summary)
 
 |           | Df |   Sum-Sq |   Mean-Sq |  F-value |   Pr(\>F) | Pr(\>F) given phy |
 | :-------- | -: | -------: | --------: | -------: | --------: | ----------------: |
-| group     |  3 | 96.90668 | 32.302226 | 6.455547 | 0.0104837 |         0.0509491 |
+| group     |  3 | 96.90668 | 32.302226 | 6.455547 | 0.0104837 |         0.0749251 |
 | Residuals | 10 | 50.03794 |  5.003794 |       NA |        NA |                NA |
 
 ``` r
@@ -196,7 +194,7 @@ x2=aov.phylo(df3~df1, phy_reduced, nsim=1000)
     ## 
     ## Response: dat
     ##           Df    Sum-Sq   Mean-Sq F-value    Pr(>F) Pr(>F) given phy  
-    ## group      3 0.0144592 0.0048197  7.1933 0.0073912          0.04496 *
+    ## group      3 0.0144592 0.0048197  7.1933 0.0073912          0.04795 *
     ## Residuals 10 0.0067003 0.0006700                                     
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -208,7 +206,7 @@ kable(attributes(x2)$summary)
 
 |           | Df |    Sum-Sq |   Mean-Sq |  F-value |   Pr(\>F) | Pr(\>F) given phy |
 | :-------- | -: | --------: | --------: | -------: | --------: | ----------------: |
-| group     |  3 | 0.0144592 | 0.0048197 | 7.193327 | 0.0073912 |          0.044955 |
+| group     |  3 | 0.0144592 | 0.0048197 | 7.193327 | 0.0073912 |          0.047952 |
 | Residuals | 10 | 0.0067003 | 0.0006700 |       NA |        NA |                NA |
 
 ``` r
@@ -228,8 +226,8 @@ title("PM Thickness by Palisade Type")
 ![](FinalProject_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> The
 p-value for both ANOVAs is significant before and insignificant after
 accounting for phylogenetic signal, indicating that photosynthetic rate
-is not related to palisade type after accounting for phylogenetic
-signal.
+and palisade mesophyll thickness are not related to palisade type after
+accounting for phylogenetic signal.
 
 ``` r
 # Using phylogenetic generalized least squares (PGLS) to control for potential phylogenetic signal in the response (and, hence, non-independence of the residuals). This helps us understand if trait relationships are driven by ancestry rather than selection.
@@ -254,7 +252,7 @@ coef(pglsModel)
 ```
 
     ##      (Intercept) Palisade.SAmes.V 
-    ##       36.2826065       -0.1327499
+    ##       35.1669550       -0.1258625
 
 ``` r
 summary(pglsModel)
@@ -264,7 +262,7 @@ summary(pglsModel)
     ##   Model: Amax ~ Palisade.SAmes.V 
     ##   Data: df4 
     ##        AIC      BIC    logLik
-    ##   86.39201 88.30918 -40.19601
+    ##   87.24799 89.16516 -40.62399
     ## 
     ## Correlation Structure: corBrownian
     ##  Formula: ~Species 
@@ -273,18 +271,18 @@ summary(pglsModel)
     ## 
     ## Coefficients:
     ##                     Value Std.Error   t-value p-value
-    ## (Intercept)      36.28261 3.0961139  11.71876       0
-    ## Palisade.SAmes.V -0.13275 0.0121038 -10.96760       0
+    ## (Intercept)      35.16695  3.574813  9.837424       0
+    ## Palisade.SAmes.V -0.12586  0.015160 -8.302501       0
     ## 
     ##  Correlation: 
     ##                  (Intr)
-    ## Palisade.SAmes.V -0.725
+    ## Palisade.SAmes.V -0.79 
     ## 
     ## Standardized residuals:
     ##         Min          Q1         Med          Q3         Max 
-    ## -1.72261048 -0.56027658  0.01428389  0.25151644  2.24874695 
+    ## -1.61545712 -0.50044651 -0.02086067  0.20860034  1.99146087 
     ## 
-    ## Residual standard error: 5.448014 
+    ## Residual standard error: 5.636949 
     ## Degrees of freedom: 14 total; 12 residual
 
 ``` r
@@ -324,7 +322,7 @@ coef(pglsModel)
 ```
 
     ##               (Intercept) Palisade.Length.Mean..mm. 
-    ##                  330.9951                -3002.3189
+    ##                  313.5406                -2595.7560
 
 ``` r
 summary(pglsModel)
@@ -334,7 +332,7 @@ summary(pglsModel)
     ##   Model: Palisade.SAmes.V ~ Palisade.Length.Mean..mm. 
     ##   Data: df4 
     ##        AIC      BIC    logLik
-    ##   163.6145 165.5317 -78.80725
+    ##   159.3284 161.2456 -76.66422
     ## 
     ## Correlation Structure: corBrownian
     ##  Formula: ~Species 
@@ -343,18 +341,18 @@ summary(pglsModel)
     ## 
     ## Coefficients:
     ##                                Value Std.Error   t-value p-value
-    ## (Intercept)                 330.9951   50.0304  6.615876   0.000
-    ## Palisade.Length.Mean..mm. -3002.3189  763.6805 -3.931381   0.002
+    ## (Intercept)                 313.5406   45.2360  6.931225  0.0000
+    ## Palisade.Length.Mean..mm. -2595.7560  712.5556 -3.642882  0.0034
     ## 
     ##  Correlation: 
     ##                           (Intr)
-    ## Palisade.Length.Mean..mm. -0.74 
+    ## Palisade.Length.Mean..mm. -0.772
     ## 
     ## Standardized residuals:
     ##        Min         Q1        Med         Q3        Max 
-    ## -0.8145137 -0.6128123 -0.3080845  0.4745131  1.1926858 
+    ## -0.9652990 -0.6819022 -0.2547979  0.4751255  1.0527810 
     ## 
-    ## Residual standard error: 85.90117 
+    ## Residual standard error: 73.96891 
     ## Degrees of freedom: 14 total; 12 residual
 
 ``` r
@@ -393,43 +391,33 @@ palisade.length<-df[,"Palisade.Length.Mean..mm."]
 names(sav.mes)<-names(palisade.length)<-df$Species
 
 # Calculate PICs
-aPic<-pic(sav.mes, phy_reduced)
-lPic<-pic(palisade.length, phy_reduced)
+sav_Pic<-pic(sav.mes, phy_reduced)
+length_Pic<-pic(palisade.length, phy_reduced)
 
 # Make a model
-picModel<-lm(aPic~lPic-1)
+picModel1<-lm(sav_Pic~length_Pic-1)
 
 # Yes, significant
-summary(picModel)
+summary(picModel1)
 ```
 
     ## 
     ## Call:
-    ## lm(formula = aPic ~ lPic - 1)
+    ## lm(formula = sav_Pic ~ length_Pic - 1)
     ## 
     ## Residuals:
     ##     Min      1Q  Median      3Q     Max 
-    ## -317.18 -170.24  -16.19  149.99  681.22 
+    ## -179.29 -102.63  -19.19  106.03  464.86 
     ## 
     ## Coefficients:
-    ##      Estimate Std. Error t value Pr(>|t|)   
-    ## lPic  -3002.3      763.7  -3.931  0.00199 **
+    ##            Estimate Std. Error t value Pr(>|t|)   
+    ## length_Pic  -2595.8      712.6  -3.643  0.00337 **
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 268.9 on 12 degrees of freedom
-    ## Multiple R-squared:  0.5629, Adjusted R-squared:  0.5265 
-    ## F-statistic: 15.46 on 1 and 12 DF,  p-value: 0.001994
-
-``` r
-# plot results
-plot(aPic~lPic, pch = 19, col=as.factor(df4$PalisadeType))+
-abline(a=0, b=coef(picModel))
-```
-
-![](FinalProject_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
-
-    ## integer(0)
+    ## Residual standard error: 176.4 on 12 degrees of freedom
+    ## Multiple R-squared:  0.5251, Adjusted R-squared:  0.4856 
+    ## F-statistic: 13.27 on 1 and 12 DF,  p-value: 0.00337
 
 ``` r
 # Relationship between SAV and photosynthetic rate
@@ -442,40 +430,56 @@ sav<-df[,"Palisade.SAmes.V"]
 names(amax)<-names(sav)<-df$Species
 
 # Calculate PICs
-aPic<-pic(amax, phy_reduced)
-sPic<-pic(sav, phy_reduced)
+amax_Pic<-pic(amax, phy_reduced)
+sav_Pic<-pic(sav, phy_reduced)
 
 # Make a model
-picModel<-lm(aPic~sPic-1)
+picModel2<-lm(amax_Pic~sav_Pic-1)
 
 # Yes, significant
-summary(picModel)
+summary(picModel2)
 ```
 
     ## 
     ## Call:
-    ## lm(formula = aPic ~ sPic - 1)
+    ## lm(formula = amax_Pic ~ sav_Pic - 1)
     ## 
     ## Residuals:
     ##     Min      1Q  Median      3Q     Max 
-    ## -32.845 -15.902   1.796  13.717  24.396 
+    ## -23.422 -12.701   1.828   9.615  16.468 
     ## 
     ## Coefficients:
-    ##      Estimate Std. Error t value Pr(>|t|)    
-    ## sPic  -0.1328     0.0121  -10.97 1.31e-07 ***
+    ##         Estimate Std. Error t value Pr(>|t|)    
+    ## sav_Pic -0.12586    0.01516  -8.303 2.57e-06 ***
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
     ## 
-    ## Residual standard error: 17.05 on 12 degrees of freedom
-    ## Multiple R-squared:  0.9093, Adjusted R-squared:  0.9017 
-    ## F-statistic: 120.3 on 1 and 12 DF,  p-value: 1.309e-07
+    ## Residual standard error: 13.44 on 12 degrees of freedom
+    ## Multiple R-squared:  0.8517, Adjusted R-squared:  0.8394 
+    ## F-statistic: 68.93 on 1 and 12 DF,  p-value: 2.566e-06
 
 ``` r
 # plot results
-plot(aPic~sPic, pch = 19, col=as.factor(df4$PalisadeType))+
-abline(a=0, b=coef(picModel))
+
+layout(t(1:2))
+
+plot(sav_Pic~length_Pic, pch = 19, col=as.factor(df4$PalisadeType))+
+abline(a=0, b=coef(picModel1))
 ```
 
-![](FinalProject_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+    ## integer(0)
+
+``` r
+title("SAmesV v. Cell Length")
+
+plot(amax_Pic~sav_Pic, pch = 19, col=as.factor(df4$PalisadeType))+
+abline(a=0, b=coef(picModel2))
+```
 
     ## integer(0)
+
+``` r
+title("Amax v. SAmesV")
+```
+
+![](FinalProject_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
