@@ -155,7 +155,7 @@ picModel<-lm(aPic~lPic-1)
 summary(picModel)
 
 # plot results
-plot(aPic~lPic, pch = 19, col=as.factor(df4$PalisadeType))+
+plot(aPic~lPic, pch = 19, col=as.factor(df$PalisadeType))+
 abline(a=0, b=coef(picModel))
 
 ```
