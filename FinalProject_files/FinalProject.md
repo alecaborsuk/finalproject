@@ -150,21 +150,22 @@ v2.0 (Pennell et al. 2014):
 # Data formatting
 # format discrete data as factor
 df$PalisadeType <- as.factor(df$PalisadeType)
+
+# ANOVA with palisade type as predictor of max photosynthetic rate
 # anova function takes named vectors as input
 df1= df[,2]
 df2 = df[,3]
 names(df1)=df[,1]
 names(df2)=df[,1]
-
-# run ANOVA
-x1=aov.phylo(df2~df1, phy_reduced, nsim=10000)
+# run ANOVA 
+x1=aov.phylo(df2~df1, phy_reduced, nsim=1000)
 ```
 
     ## Analysis of Variance Table
     ## 
     ## Response: dat
     ##           Df Sum-Sq Mean-Sq F-value   Pr(>F) Pr(>F) given phy  
-    ## group      3 96.907  32.302  6.4555 0.010484          0.05299 .
+    ## group      3 96.907  32.302  6.4555 0.010484          0.05095 .
     ## Residuals 10 50.038   5.004                                    
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -176,23 +177,11 @@ kable(attributes(x1)$summary)
 
 |           | Df |   Sum-Sq |   Mean-Sq |  F-value |   Pr(\>F) | Pr(\>F) given phy |
 | :-------- | -: | -------: | --------: | -------: | --------: | ----------------: |
-| group     |  3 | 96.90668 | 32.302226 | 6.455547 | 0.0104837 |         0.0529947 |
+| group     |  3 | 96.90668 | 32.302226 | 6.455547 | 0.0104837 |         0.0509491 |
 | Residuals | 10 | 50.03794 |  5.003794 |       NA |        NA |                NA |
 
 ``` r
-# boxplot visualization
-plot(df$Amax~df$PalisadeType, col=cols)
-```
-
-![](FinalProject_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> The
-p-value for the ANOVA is significant before and insignificant after
-accounting for phylogenetic signal, indicating that photosynthetic rate
-is not related to palisade type after accounting for phylogenetic
-signal.
-
-``` r
-# ANOVA again with palisade type as a predictor of palisade mesophyll thickness
-
+# run ANOVA again with palisade type as a predictor of palisade mesophyll thickness
 # anova function takes named vectors as input
 df1= df[,2]
 df3 = df[,7]
@@ -200,14 +189,14 @@ names(df1)=df[,1]
 names(df3)=df[,1]
 
 # run ANOVA
-x2=aov.phylo(df3~df1, phy_reduced, nsim=10000)
+x2=aov.phylo(df3~df1, phy_reduced, nsim=1000)
 ```
 
     ## Analysis of Variance Table
     ## 
     ## Response: dat
     ##           Df    Sum-Sq   Mean-Sq F-value    Pr(>F) Pr(>F) given phy  
-    ## group      3 0.0144592 0.0048197  7.1933 0.0073912           0.0411 *
+    ## group      3 0.0144592 0.0048197  7.1933 0.0073912          0.04496 *
     ## Residuals 10 0.0067003 0.0006700                                     
     ## ---
     ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
@@ -219,119 +208,28 @@ kable(attributes(x2)$summary)
 
 |           | Df |    Sum-Sq |   Mean-Sq |  F-value |   Pr(\>F) | Pr(\>F) given phy |
 | :-------- | -: | --------: | --------: | -------: | --------: | ----------------: |
-| group     |  3 | 0.0144592 | 0.0048197 | 7.193327 | 0.0073912 |         0.0410959 |
+| group     |  3 | 0.0144592 | 0.0048197 | 7.193327 | 0.0073912 |          0.044955 |
 | Residuals | 10 | 0.0067003 | 0.0006700 |       NA |        NA |                NA |
 
 ``` r
 # boxplot visualization
+#plot(df$Amax~df$PalisadeType, col=cols)
+
+# Boxplot visualizations
+layout(t(1:2))
+
+plot(df$Amax~df$PalisadeType, col=cols)
+title("Amax by Palisade Type")
+
 plot(df$Palisade.Mesophyll.Thickness.Mean..mm.~df$PalisadeType, col=cols)
+title("PM Thickness by Palisade Type")
 ```
 
-![](FinalProject_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
-
-The p-value for the ANOVA is significant before and after accounting for
-phylogenetic signal, indicating that palisade thickness is related to
-palisade type after accounting for phylogenetic signal.
-
-## Phylognetic Independent Contrasts
-
-``` r
-# Relationship between palisade surface area to volume ratio (Palisade.SAmes.V) and palisade cell length (Palisade.Length.Mean..mm.)
-
-# Extract columns
-sav.mes<-df[,"Palisade.SAmes.V"]
-palisade.length<-df[,"Palisade.Length.Mean..mm."]
-
-# Give them names
-names(sav.mes)<-names(palisade.length)<-df$Species
-
-# Calculate PICs
-aPic<-pic(sav.mes, phy_reduced)
-lPic<-pic(palisade.length, phy_reduced)
-
-# Make a model
-picModel<-lm(aPic~lPic-1)
-
-# Yes, significant
-summary(picModel)
-```
-
-    ## 
-    ## Call:
-    ## lm(formula = aPic ~ lPic - 1)
-    ## 
-    ## Residuals:
-    ##     Min      1Q  Median      3Q     Max 
-    ## -317.18 -170.24  -16.19  149.99  681.22 
-    ## 
-    ## Coefficients:
-    ##      Estimate Std. Error t value Pr(>|t|)   
-    ## lPic  -3002.3      763.7  -3.931  0.00199 **
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ## 
-    ## Residual standard error: 268.9 on 12 degrees of freedom
-    ## Multiple R-squared:  0.5629, Adjusted R-squared:  0.5265 
-    ## F-statistic: 15.46 on 1 and 12 DF,  p-value: 0.001994
-
-``` r
-# plot results
-plot(aPic~lPic, pch = 19, col=as.factor(df$PalisadeType))+
-abline(a=0, b=coef(picModel))
-```
-
-![](FinalProject_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
-
-    ## integer(0)
-
-``` r
-# Relationship between SAV and photosynthetic rate
-
-# Extract columns
-amax<-df[,"Amax"]
-sav<-df[,"Palisade.SAmes.V"]
-
-# Give them names
-names(amax)<-names(sav)<-df$Species
-
-# Calculate PICs
-aPic<-pic(amax, phy_reduced)
-sPic<-pic(sav, phy_reduced)
-
-# Make a model
-picModel<-lm(aPic~sPic-1)
-
-# Yes, significant
-summary(picModel)
-```
-
-    ## 
-    ## Call:
-    ## lm(formula = aPic ~ sPic - 1)
-    ## 
-    ## Residuals:
-    ##     Min      1Q  Median      3Q     Max 
-    ## -32.845 -15.902   1.796  13.717  24.396 
-    ## 
-    ## Coefficients:
-    ##      Estimate Std. Error t value Pr(>|t|)    
-    ## sPic  -0.1328     0.0121  -10.97 1.31e-07 ***
-    ## ---
-    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-    ## 
-    ## Residual standard error: 17.05 on 12 degrees of freedom
-    ## Multiple R-squared:  0.9093, Adjusted R-squared:  0.9017 
-    ## F-statistic: 120.3 on 1 and 12 DF,  p-value: 1.309e-07
-
-``` r
-# plot results
-plot(aPic~sPic, pch = 19, col=as.factor(df$PalisadeType))+
-abline(a=0, b=coef(picModel))
-```
-
-![](FinalProject_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
-
-    ## integer(0)
+![](FinalProject_files/figure-gfm/unnamed-chunk-4-1.png)<!-- --> The
+p-value for both ANOVAs is significant before and insignificant after
+accounting for phylogenetic signal, indicating that photosynthetic rate
+is not related to palisade type after accounting for phylogenetic
+signal.
 
 ``` r
 # Using phylogenetic generalized least squares (PGLS) to control for potential phylogenetic signal in the response (and, hence, non-independence of the residuals). This helps us understand if trait relationships are driven by ancestry rather than selection.
@@ -413,7 +311,7 @@ abline(lm(df4$Amax~df4$Palisade.SAmes.V), col = "red")
 title("original regression")
 ```
 
-![](FinalProject_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](FinalProject_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
 
 ``` r
 # Using phylogenetic generalized least squares (PGLS) to control for potential phylogenetic signal in the response (and, hence, non-independence of the residuals). This helps us understand if trait relationships are driven by ancestry rather than selection.
@@ -481,4 +379,103 @@ abline(lm(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm.), col = "red")
 title("original regression")
 ```
 
-![](FinalProject_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](FinalProject_files/figure-gfm/unnamed-chunk-6-1.png)<!-- --> \#\#
+Phylognetic Independent Contrasts
+
+``` r
+# Relationship between palisade surface area to volume ratio (Palisade.SAmes.V) and palisade cell length (Palisade.Length.Mean..mm.)
+
+# Extract columns
+sav.mes<-df[,"Palisade.SAmes.V"]
+palisade.length<-df[,"Palisade.Length.Mean..mm."]
+
+# Give them names
+names(sav.mes)<-names(palisade.length)<-df$Species
+
+# Calculate PICs
+aPic<-pic(sav.mes, phy_reduced)
+lPic<-pic(palisade.length, phy_reduced)
+
+# Make a model
+picModel<-lm(aPic~lPic-1)
+
+# Yes, significant
+summary(picModel)
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = aPic ~ lPic - 1)
+    ## 
+    ## Residuals:
+    ##     Min      1Q  Median      3Q     Max 
+    ## -317.18 -170.24  -16.19  149.99  681.22 
+    ## 
+    ## Coefficients:
+    ##      Estimate Std. Error t value Pr(>|t|)   
+    ## lPic  -3002.3      763.7  -3.931  0.00199 **
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 268.9 on 12 degrees of freedom
+    ## Multiple R-squared:  0.5629, Adjusted R-squared:  0.5265 
+    ## F-statistic: 15.46 on 1 and 12 DF,  p-value: 0.001994
+
+``` r
+# plot results
+plot(aPic~lPic, pch = 19, col=as.factor(df4$PalisadeType))+
+abline(a=0, b=coef(picModel))
+```
+
+![](FinalProject_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+    ## integer(0)
+
+``` r
+# Relationship between SAV and photosynthetic rate
+
+# Extract columns
+amax<-df[,"Amax"]
+sav<-df[,"Palisade.SAmes.V"]
+
+# Give them names
+names(amax)<-names(sav)<-df$Species
+
+# Calculate PICs
+aPic<-pic(amax, phy_reduced)
+sPic<-pic(sav, phy_reduced)
+
+# Make a model
+picModel<-lm(aPic~sPic-1)
+
+# Yes, significant
+summary(picModel)
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = aPic ~ sPic - 1)
+    ## 
+    ## Residuals:
+    ##     Min      1Q  Median      3Q     Max 
+    ## -32.845 -15.902   1.796  13.717  24.396 
+    ## 
+    ## Coefficients:
+    ##      Estimate Std. Error t value Pr(>|t|)    
+    ## sPic  -0.1328     0.0121  -10.97 1.31e-07 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 17.05 on 12 degrees of freedom
+    ## Multiple R-squared:  0.9093, Adjusted R-squared:  0.9017 
+    ## F-statistic: 120.3 on 1 and 12 DF,  p-value: 1.309e-07
+
+``` r
+# plot results
+plot(aPic~sPic, pch = 19, col=as.factor(df4$PalisadeType))+
+abline(a=0, b=coef(picModel))
+```
+
+![](FinalProject_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+    ## integer(0)
