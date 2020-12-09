@@ -21,7 +21,7 @@ These workflows will not only help me with my current project, but hopefully be 
 
 Publicly available gene sequence data were collected from the database resources of the National Center for Biotechnology Information (NCBI Resource Coordinators 2016). Sequences were obtained from the matK and rbcL chloroplast genes representing 119 taxa in total. Sequences for each gene were aligned using the multiple sequence alignment program MAFFT (version 7; Katoh 2002) on the Yale Center for Research Computing (YCRC) cluster. The alinged sequences were concatenated using the Phyutility command line phyloinformatics program (version 2.7.1; Smith and Dunn 2008). Phylogenetic inference using maximum likelihood was implemented in IQ-tree (version 1.6.12; Nguyen et al. 2015) on the YCRC cluster. The multi2di() function from the ape (version 5.4.1; Paradis & Schliep 2019) package for R (R Core Team 2013) was used to randomly resolve multichotomies into a series of dichotomies with one or more branches of length zero. The tree was rooted using the root() function in ape (version 5.4.1; Paradis & Schliep 2019) with *V. clemensiae* as the outgroup, which has been reported as sister to the rest of the genus (Chatelet et al. 2013). The tree was made ultrameric using the chronos() function in ape (version 5.4.1; Paradis & Schliep 2019), with lambda = 1 and using a correlated model. The tree was then pruned to the species of interest for my current study using the drop.tip() function in from the ape (version 5.4.1; Paradis & Schliep 2019) package in R (R Core Team 2013). The resulting tree was used to conduct phylogenetically informed statistical explorations of palisade cell functional traits. ANOVA, phylogenetic independent contrasts, and phylogenetic least squares regressions were conducted using the ape (version 5.4.1; Paradis & Schliep 2019) package in R (R Core Team 2013).
 
-A summary of the overall workflow is as follows:  
+A summary of the workflow:  
 
 ![](FinalProject_files/images/methods.png)
 
@@ -32,6 +32,10 @@ A summary of the overall workflow is as follows:
 The best-fit model according to the Bayesian information criterion (BIC) was HKY+F+R3 with a log-likelihood of -8486.2452. The reconstructed tree for 119 species is shown below.
 
 ![](FinalProject_files/images/phy-2.png)
+
+The pruned tree with species of interest, labeled by palisade type. 
+
+![](FinalProject_files/images/unnamed-chunk-3-1.png) 
 
 **Comparative methods**
 
