@@ -33,7 +33,7 @@ The best-fit model according to the Bayesian information criterion (BIC) was HKY
 
 ![](FinalProject_files/images/phy-2.png)
 
-Here is the tree pruned to the species of interest with tips labeled by palisade type. This visualization indicates that there are associations between palisade type and clade, as anticipated from Chatelet et al. (2013). 
+Here is the tree pruned to the species of interest with tips labeled by palisade type. This visualization indicates that there are associations between palisade type and clade, as anticipated from Chatelet et al. (2013). For example, *V. propinquum*, *V. cinnamomifolium*, and *V. davidii* form a monophyletic group and all have I2 type palisade tissue.
 
 ![](FinalProject_files/images/unnamed-chunk-3-1.png) 
 
