@@ -186,7 +186,7 @@ abline(lm(df4$Palisade.SAmes.V ~df4$Palisade.Length.Mean..mm.), col = "red")
 title("original regression")
 ```
 ## Phylognetic Independent Contrasts
-```{r}
+```{r, fig.keep = 'last'}
 # Relationship between palisade surface area to volume ratio (Palisade.SAmes.V) and palisade cell length (Palisade.Length.Mean..mm.)
 
 # Extract columns
@@ -197,22 +197,15 @@ palisade.length<-df[,"Palisade.Length.Mean..mm."]
 names(sav.mes)<-names(palisade.length)<-df$Species
 
 # Calculate PICs
-aPic<-pic(sav.mes, phy_reduced)
-lPic<-pic(palisade.length, phy_reduced)
+sav_Pic<-pic(sav.mes, phy_reduced)
+length_Pic<-pic(palisade.length, phy_reduced)
 
 # Make a model
-picModel<-lm(aPic~lPic-1)
+picModel1<-lm(sav_Pic~length_Pic-1)
 
 # Yes, significant
-summary(picModel)
+summary(picModel1)
 
-# plot results
-plot(aPic~lPic, pch = 19, col=as.factor(df4$PalisadeType))+
-abline(a=0, b=coef(picModel))
-
-```
-
-```{r}
 # Relationship between SAV and photosynthetic rate
 
 # Extract columns
@@ -223,17 +216,28 @@ sav<-df[,"Palisade.SAmes.V"]
 names(amax)<-names(sav)<-df$Species
 
 # Calculate PICs
-aPic<-pic(amax, phy_reduced)
-sPic<-pic(sav, phy_reduced)
+amax_Pic<-pic(amax, phy_reduced)
+sav_Pic<-pic(sav, phy_reduced)
 
 # Make a model
-picModel<-lm(aPic~sPic-1)
+picModel2<-lm(amax_Pic~sav_Pic-1)
 
 # Yes, significant
-summary(picModel)
+summary(picModel2)
 
 # plot results
-plot(aPic~sPic, pch = 19, col=as.factor(df4$PalisadeType))+
-abline(a=0, b=coef(picModel))
+
+layout(t(1:2))
+
+plot(sav_Pic~length_Pic, pch = 19, col=as.factor(df4$PalisadeType))+
+abline(a=0, b=coef(picModel1))
+title("SAmesV v. Cell Length")
+
+plot(amax_Pic~sav_Pic, pch = 19, col=as.factor(df4$PalisadeType))+
+abline(a=0, b=coef(picModel2))
+title("Amax v. SAmesV")
+
 ```
+
+
 
