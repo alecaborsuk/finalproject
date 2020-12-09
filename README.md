@@ -19,7 +19,7 @@ These workflows will not only help me with my current project, but hopefully be 
 
 ## Methods
 
-Publicly available gene sequence data were collected from the database resources of the National Center for Biotechnology Information (NCBI Resource Coordinators 2016). Sequences were obtained from the matK and rbcL chloroplast genes representing 119 taxa in total. Sequences for each gene were aligned using the multiple sequence alignment program MAFFT (version 7; Katoh 2002) on the Yale Center for Research Computing (YCRC) cluster. The alinged sequences were concatenated using the Phyutility command line phyloinformatics program (version 2.7.1; Smith and Dunn 2008). Phylogenetic inference using maximum likelihood was implemented in IQ-tree (version 1.6.12; Nguyen et al. 2015) on the YCRC cluster. The multi2di() function from the ape (version 5.4.1; Paradis & Schliep 2019) package for R (R Core Team 2013) was used to randomly resolve multichotomies into a series of dichotomies with one or more branches of length zero. The tree was rooted using the root() function in ape (version 5.4.1; Paradis & Schliep 2019) with *V. clemensiae* as the outgroup, which has been reported as sister to the rest of the genus (Chatelet et al. 2013). The tree was made ultrameric using the chronos() function in ape (version 5.4.1; Paradis & Schliep 2019), with lambda = 1 and using a correlated model. The tree was then pruned to the species of interest for my current study using the drop.tip() function in from the ape (version 5.4.1; Paradis & Schliep 2019) package in R (R Core Team 2013). The resulting tree was used to conduct phylogenetically informed statistical explorations of palisade cell functional traits. ANOVA, phylogenetic independent contrasts, and phylogenetic least squares regressions were conducted using the ape (version 5.4.1; Paradis & Schliep 2019) package in R (R Core Team 2013).
+Publicly available gene sequence data were collected from the database resources of the National Center for Biotechnology Information (NCBI Resource Coordinators 2016). Sequences were obtained from the matK and rbcL chloroplast genes representing 119 taxa in total. Sequences for each gene were aligned using the multiple sequence alignment program MAFFT (version 7; Katoh 2002) on the Yale Center for Research Computing (YCRC) cluster. The alinged sequences were concatenated using the Phyutility command line phyloinformatics program (version 2.7.1; Smith and Dunn 2008). Phylogenetic inference using maximum likelihood was implemented in IQ-tree (version 1.6.12; Nguyen et al. 2015) on the YCRC cluster. The multi2di() function from the ape (version 5.4.1; Paradis & Schliep 2019) package for R (R Core Team 2013) was used to randomly resolve multichotomies into a series of dichotomies with one or more branches of length zero. The tree was rooted using the root() function in ape (version 5.4.1; Paradis & Schliep 2019) with *V. clemensiae* as the outgroup, which has been reported as sister to the rest of the genus (Chatelet et al. 2013). The tree was made ultrameric using the chronos() function in ape (version 5.4.1; Paradis & Schliep 2019), with lambda = 1 and using a correlated model. The tree was then pruned to the species of interest for my current study using the drop.tip() function in from the ape (version 5.4.1; Paradis & Schliep 2019) package in R (R Core Team 2013). The resulting tree was used to conduct phylogenetically informed statistical explorations of palisade cell functional traits. ANOVA was conducted using geiger v2.0 (Pennell et al. 2014) package in R (R Core Team 2013). Phylogenetic independent contrasts and phylogenetic least squares regressions were conducted using the ape (version 5.4.1; Paradis & Schliep 2019) package in R (R Core Team 2013).
 
 A summary of the workflow:  
 
@@ -40,7 +40,15 @@ The tree below has been pruned to the species of interest with tips labeled by p
 
 **Comparative methods**
 
+0.010484  0.05395 
+0.0073912 0.05095 
+
+The p-value for both ANOVAs is significant before and insignificant after accounting for phylogenetic signal, indicating that photosynthetic rate and palisade mesophyll thickness are not related to palisade type after accounting for phylogenetic signal.
+
 ![](FinalProject_files/FinalProject_files/figure-gfm/unnamed-chunk-4-1.png) 
+
+Next I am using phylogenetic generalized least squares (PGLS) to control for potential phylogenetic signal in the response (and, hence, non-independence of the residuals). This helps us understand if trait relationships are driven by ancestry rather than selection.
+
 ![](FinalProject_files/FinalProject_files/figure-gfm/unnamed-chunk-5-1.png) 
 ![](FinalProject_files/FinalProject_files/figure-gfm/unnamed-chunk-6-1.png) 
 
