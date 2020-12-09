@@ -33,7 +33,7 @@ The best-fit model according to the Bayesian information criterion (BIC) was HKY
 
 ![](FinalProject_files/images/phy-2.png)
 
-The pruned tree with species of interest, labeled by palisade type. 
+The pruned tree to species of interest, labeled by palisade type. 
 
 ![](FinalProject_files/images/unnamed-chunk-3-1.png) 
 
