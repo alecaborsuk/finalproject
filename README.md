@@ -34,23 +34,24 @@ The best-fit model according to the Bayesian information criterion (BIC) was HKY
 
 ![](FinalProject_files/images/phy-2.png)
 
-The tree below has been pruned to the species of interest with tips labeled by palisade type. This visualization indicates that there are associations between palisade type and clade, as anticipated from Chatelet et al. (2013). For example, *V. propinquum*, *V. cinnamomifolium*, and *V. davidii* form a monophyletic group and all have I2 type palisade tissue.
+Here the tree has been pruned to the species of interest and the tips have been labeled by the palisade cell type (H1, H2, I1, I2) discrete character state. This visualization indicates that there are associations between palisade type and clade, as anticipated from Chatelet et al. (2013). For example, *V. propinquum*, *V. cinnamomifolium*, and *V. davidii* form a monophyletic group and all have I2 type palisade tissue.
 
 ![](FinalProject_files/images/unnamed-chunk-3-1.png) 
 
 **Comparative methods**
 
-0.010484  0.05395 
-0.0073912 0.05095 
+Using a combination of measured and dummy data, I ran phylogenetically informed, one-way ANOVAs on several variables of interest as an exploration of trends in the dataset. Maximum photosynthetic rate (Amax) and palisade mesophyll thickness were two variables with anticipated relationships to palisade type and are used here as examples. Although there were statistically significant differences between group means before accounting for phylogenetic signal (F(2,27) = 1.397, p = 0.010484 and F(2,27) = 1.397, p =0.0073912 for Amax and Palisade Thickness, respectively), after correcting for phylogenetic signal there were no longer significant differences in group means (p = 0.05395 and p = 0.05095 for Amax and Palisade Thickness, respectively). This indicates that despite marked differences in photosynthetic rate and palisade mesophyll thickness, these traits may not be related to palisade type after accounting for phylogenetic signal. 
 
-The p-value for both ANOVAs is significant before and insignificant after accounting for phylogenetic signal, indicating that photosynthetic rate and palisade mesophyll thickness are not related to palisade type after accounting for phylogenetic signal.
-
+Here the differences in group means by palisade type are visualized using box and whisker plots:
 ![](FinalProject_files/FinalProject_files/figure-gfm/unnamed-chunk-4-1.png) 
 
-Next I am using phylogenetic generalized least squares (PGLS) to control for potential phylogenetic signal in the response (and, hence, non-independence of the residuals). This helps us understand if trait relationships are driven by ancestry rather than selection.
+Next I used two methods, phylogenetic independent contrasts (PIC) and phylogenetic generalized least squares (PGLS), to see if relationships between continuous traits were driven by ancestry rather than selection, i.e. non-independence of the residuals. I chose two key relationships to explore. First, the relationship between palisade cell length and the surface area to volume (SAmesV) ratio of the palisade tissue, and second, the relationship between SAmesV and Amax. Together, these relationships indicate how cell geometry impacts leaf photosynthetic performance. 
+
+![](FinalProject_files/FinalProject_files/figure-gfm/unnamed-chunk-6-1.png)
+
 
 ![](FinalProject_files/FinalProject_files/figure-gfm/unnamed-chunk-5-1.png) 
-![](FinalProject_files/FinalProject_files/figure-gfm/unnamed-chunk-6-1.png) 
+ 
 
 ## Discussion
 
